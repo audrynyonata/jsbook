@@ -11,6 +11,13 @@
 # production
 /build
 
+# ts build
+/bundler
+/components
+
+# eslint
+.eslintcache
+
 # misc
 .DS_Store
 .env.local
