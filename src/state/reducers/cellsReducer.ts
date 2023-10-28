@@ -5,6 +5,7 @@ interface CellsState {
   loading: boolean;
   error: string | null;
   order: string[];
+  focusedIndex: string | null;
   data: {
     [key: string]: Cell;
   };
@@ -13,6 +14,7 @@ interface CellsState {
 const initialState: CellsState = {
   loading: false,
   error: null,
+  focusedIndex: null,
   order: [],
   data: {},
 };
@@ -27,12 +29,14 @@ const reducer = (state: CellsState = initialState, action: Action) => {
       if (targetIndex < 0 || targetIndex > state.order.length - 1) {
         return state;
       }
+
       const order = state.order.slice();
       order[foundIndex] = order[targetIndex];
       order[targetIndex] = id;
 
       return {
         ...state,
+        focusedIndex: id,
         order,
       };
     }
@@ -40,8 +44,10 @@ const reducer = (state: CellsState = initialState, action: Action) => {
       const id = action.payload;
       const { [id]: omit, ...data } = state.data;
       const order = state.order.filter((cellId) => cellId !== id);
+
       return {
         ...state,
+        focusedIndex: null,
         data,
         order,
       };
@@ -56,20 +62,22 @@ const reducer = (state: CellsState = initialState, action: Action) => {
       };
 
       const foundIndex = state.order.findIndex((cellId) => cellId === id);
+      const targetIndex = foundIndex + 1;
 
       let order: string[];
       if (foundIndex < 0) {
         order = [cell.id, ...state.order];
       } else {
         order = [
-          ...state.order.slice(0, foundIndex),
+          ...state.order.slice(0, targetIndex),
           cell.id,
-          ...state.order.slice(foundIndex + 1),
+          ...state.order.slice(targetIndex),
         ];
       }
 
       return {
         ...state,
+        focusedIndex: cell.id,
         data: {
           ...state.data,
           [cell.id]: cell,
@@ -79,12 +87,14 @@ const reducer = (state: CellsState = initialState, action: Action) => {
     }
     case ActionType.UPDATE_CELL: {
       const { id, content } = action.payload;
+
       return {
         ...state,
+        focusedIndex: id,
         data: {
           ...state.data,
           [id]: {
-            ...state.data.id,
+            ...state.data[id],
             content,
           },
         },
@@ -94,61 +104,6 @@ const reducer = (state: CellsState = initialState, action: Action) => {
       return state;
   }
 };
-
-/*
-const reducer = produce((state: CellsState = initialState, action: Action) => {
-  switch (action.type) {
-    case ActionType.UPDATE_CELL:
-      const { id, content } = action.payload;
-
-      state.data[id].content = content;
-
-      return state;
-    case ActionType.DELETE_CELL:
-      delete state.data[action.payload];
-      state.order = state.order.filter((id) => id !== action.payload);
-
-      return state;
-    case ActionType.MOVE_CELL:
-      const { direction } = action.payload;
-      const index = state.order.findIndex((id) => id === action.payload.id);
-      const targetIndex = direction === 'up' ? index - 1 : index + 1;
-
-      if (targetIndex < 0 || targetIndex > state.order.length - 1) {
-        return state;
-      }
-
-      state.order[index] = state.order[targetIndex];
-      state.order[targetIndex] = action.payload.id;
-
-      return state;
-    case ActionType.INSERT_CELL_AFTER:
-      const cell: Cell = {
-        content: '',
-        type: action.payload.type,
-        id: randomId(),
-      };
-
-      state.data[cell.id] = cell;
-
-      const foundIndex = state.order.findIndex(
-        (id) => id === action.payload.id
-      );
-
-      if (foundIndex < 0) {
-        state.order.unshift(cell.id);
-      } else {
-        state.order.splice(foundIndex + 1, 0, cell.id);
-      }
-
-      return state;
-    default:
-      return state;
-  }
-}, initialState);
-
-
-*/
 
 const randomId = () => {
   return Math.random().toString(36).substr(2, 5);

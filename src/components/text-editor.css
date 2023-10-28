@@ -41,6 +41,10 @@
   z-index: 20;
 }
 
+.w-md-editor-toolbar {
+  border-radius: unset;
+}
+
 .text-editor .w-md-editor-toolbar {
   background-color: #37414b;
   border-bottom: 1px solid gray;

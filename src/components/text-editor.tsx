@@ -35,17 +35,27 @@ const TextEditor = ({ cell }: TextEditorProps) => {
 
   if (editing) {
     return (
-      <div className="text-editor" ref={ref}>
-        <MDEditor
-          value={cell.content}
-          onChange={(value) => updateCell(cell.id, value || '')}
-        />
-      </div>
+      <>
+        <div className="text-editor" ref={ref}>
+          <MDEditor
+            value={cell.content}
+            onChange={(value) => updateCell(cell.id, value || '')}
+          />
+        </div>
+        <div
+          style={{
+            height: '30px',
+            width: '100%',
+            background: '#37414b',
+            textAlign: 'right',
+          }}
+        ></div>
+      </>
     );
   }
 
   return (
-    <div className="text-editor" onClick={() => setEditing(true)}>
+    <div className="text-editor card" onClick={() => setEditing(true)}>
       <div className="card-content">
         <MDEditor.Markdown source={cell.content || 'Click to edit'} />
       </div>

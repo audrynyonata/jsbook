@@ -6,9 +6,10 @@ import './cell-list-item.css';
 
 interface CellListItemProps {
   cell: Cell;
+  focused: boolean;
 }
 
-const CellListItem = ({ cell }: CellListItemProps) => {
+const CellListItem = ({ cell, focused }: CellListItemProps) => {
   const { id, type } = cell;
   let child: JSX.Element;
 
@@ -29,7 +30,9 @@ const CellListItem = ({ cell }: CellListItemProps) => {
       </>
     );
   }
-  return <div className="cell-list-item">{child}</div>;
+  return (
+    <div className={`cell-list-item ${focused && 'focused'}`}>{child}</div>
+  );
 };
 
 export default CellListItem;

@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useTypedSelector } from '../hooks/use-typed-selector';
 import CellListItem from './cell-list-item';
 import AddCell from './add-cell';
@@ -10,9 +10,19 @@ const CellList = () => {
     return order.map((id) => data[id]);
   });
 
+  const focusedIndex = useTypedSelector((state) => {
+    return state.cells.focusedIndex;
+  });
+
+  useEffect(() => {
+    document
+      .querySelector('.focused')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, [cells, focusedIndex]);
+
   const renderedCells = cells.map((cell) => (
     <Fragment key={cell.id}>
-      <CellListItem cell={cell} />
+      <CellListItem cell={cell} focused={cell.id === focusedIndex} />
       <AddCell previousCellId={cell.id} />
     </Fragment>
   ));
