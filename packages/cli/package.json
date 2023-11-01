@@ -1,6 +1,6 @@
 {
   "name": "jsbook-audrynyonata",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -17,10 +17,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@jsbook-audrynyonata/local-client": "^1.0.0"
+    "@jsbook-audrynyonata/local-client": "^1.0.1"
   },
   "devDependencies": {
-    "@jsbook-audrynyonata/local-api": "^1.0.0",
+    "@jsbook-audrynyonata/local-api": "^1.0.1",
     "@types/node": "^20.8.10",
     "commander": "^11.1.0",
     "esbuild": "0.8.26",
