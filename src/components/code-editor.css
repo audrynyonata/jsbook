@@ -15,3 +15,8 @@
 .editor-wrapper:hover .button-format {
   opacity: 1;
 }
+
+/* use light theme */
+.editor-wrapper {
+  background-color: white;
+}

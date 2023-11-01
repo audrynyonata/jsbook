@@ -9,3 +9,8 @@
 .action-bar:hover {
   opacity: 1;
 }
+
+/* use light theme */
+.action-bar button.is-primary.is-small {
+  border-radius: 0;
+}

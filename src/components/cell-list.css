@@ -5,3 +5,8 @@
 .react-draggable-transparent-selection .cell-list {
   margin-bottom: 100vh;
 }
+
+/* use light theme */
+html {
+  background-color: wheat;
+}

@@ -5,7 +5,7 @@ import parser from 'prettier/parser-babel';
 import codeShift from 'jscodeshift';
 import Highlighter from 'monaco-jsx-highlighter';
 import './code-editor.css';
-import './syntax.css';
+// import './syntax.css'; // use light theme
 
 interface CodeEditorProps {
   initialValue: string;
@@ -64,7 +64,7 @@ const CodeEditor = ({ initialValue, onChange }: CodeEditorProps) => {
       <MonacoEditor
         editorDidMount={handleEditorDidMount}
         value={initialValue}
-        theme="dark"
+        // theme="dark" // use light theme
         language="javascript"
         height="100%"
         options={{

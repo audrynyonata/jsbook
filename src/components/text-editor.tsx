@@ -42,14 +42,12 @@ const TextEditor = ({ cell }: TextEditorProps) => {
             onChange={(value) => updateCell(cell.id, value || '')}
           />
         </div>
-        <div
-          style={{
-            height: '30px',
-            width: '100%',
-            background: '#37414b',
-            textAlign: 'right',
-          }}
-        ></div>
+        <div className="save-bar">
+          <button className="button is-primary is-small">
+            <i className="fas fa-check" />
+          </button>
+        </div>
+        {/* <div className="text-editor-back-to-preview"></div> */}
       </>
     );
   }
