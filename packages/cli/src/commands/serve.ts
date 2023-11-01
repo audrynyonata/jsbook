@@ -9,12 +9,10 @@ interface LocalApiError {
 const isProduction = process.env.NODE_ENV === 'production';
 
 export const serveCommand = new Command()
-  .command('serve [filename]') // optional args
+  .command('serve [filename]') // [filename] optional args
   .description('Open a file for editing')
-  .option('-p, --port <number>', 'port to run server on', '4005') // mandatory arg, ensure all param is string
+  .option('-p, --port <number>', 'port to run server on', '4005') // <number> mandatory arg, ensure all param is string
   .action(async (filename = 'notebook.js', options: { port: string }) => {
-    // console.log(process.cwd(), path.dirname(filename), path.basename(filename));
-
     const isLocalApiError = (err: any): err is LocalApiError => {
       return typeof err.code === 'string';
     };
@@ -24,7 +22,7 @@ export const serveCommand = new Command()
       const basename = path.basename(filename);
       await serve(parseInt(options.port), basename, dir, !isProduction);
       console.log(`
-        Opened ${filename}. Navigate to http://localhost:${options.port} to see changes.
+        Opened ${filename}. Navigate to http://localhost:${options.port} to edit the file.
       `);
     } catch (err) {
       if (isLocalApiError(err)) {

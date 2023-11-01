@@ -1,10 +1,13 @@
 import { Fragment, useEffect } from 'react';
 import { useTypedSelector } from '../hooks/use-typed-selector';
+import { useActions } from '../hooks/use-actions';
 import CellListItem from './cell-list-item';
 import AddCell from './add-cell';
 import './cell-list.css';
 
 const CellList = () => {
+  const { fetchCells } = useActions();
+
   const cells = useTypedSelector((state) => {
     const { order, data } = state.cells;
     return order.map((id) => data[id]);
@@ -19,6 +22,11 @@ const CellList = () => {
       .querySelector('.focused')
       ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, [cells, focusedIndex]);
+
+  useEffect(() => {
+    fetchCells();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderedCells = cells.map((cell) => (
     <Fragment key={cell.id}>

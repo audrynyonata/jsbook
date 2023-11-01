@@ -21,6 +21,38 @@ const initialState: CellsState = {
 
 const reducer = (state: CellsState = initialState, action: Action) => {
   switch (action.type) {
+    case ActionType.SAVE_CELLS_ERROR: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    case ActionType.FETCH_CELLS: {
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    }
+    case ActionType.FETCH_CELLS_COMPLETE: {
+      const order = action.payload.map((cell) => cell.id);
+      const data = action.payload.reduce((acc, cell) => {
+        acc[cell.id] = cell;
+        return acc;
+      }, {} as CellsState['data']);
+      return {
+        ...state,
+        order,
+        data,
+      };
+    }
+    case ActionType.FETCH_CELLS_ERROR: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    }
     case ActionType.MOVE_CELL: {
       const { id, direction } = action.payload;
       const foundIndex = state.order.findIndex((cellId) => cellId === id);

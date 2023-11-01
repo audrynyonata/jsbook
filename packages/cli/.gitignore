@@ -16,6 +16,9 @@
 /components
 /dist
 
+# default jsbook savefiles
+notebook.js
+
 # eslint
 .eslintcache
 

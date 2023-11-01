@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { createProxyMiddleware } from 'http-proxy-middleware';
+import { createCellsRouter } from './routes/cells';
 
 export const serve = (
   port: number,
@@ -9,6 +10,8 @@ export const serve = (
   useProxy: boolean
 ) => {
   const app = express();
+
+  app.use(createCellsRouter(filename, dir));
 
   if (useProxy) {
     // opt 1: react dev server running
