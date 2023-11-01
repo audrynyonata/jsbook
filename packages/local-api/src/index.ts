@@ -26,7 +26,9 @@ export const serve = (
   } else {
     // opt 2: react build/prod installed via cli
     // for customers/end-user machine, serve files from installed local-client package
-    const packagePath = require.resolve('local-client/build/index.html'); // absolute path to index.html file
+    const packagePath = require.resolve(
+      '@jsbook-audrynyonata/local-client/build/index.html'
+    ); // absolute path to index.html file
     app.use(express.static(path.dirname(packagePath))); // serve the directory of that file
   }
 
