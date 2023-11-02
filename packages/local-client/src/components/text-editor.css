@@ -1,12 +1,22 @@
-.w-md-editor .title {
-  line-height: unset;
-  font-size: unset;
-  font-weight: unset;
-  color: #d4d4d4 !important;
+/* toolbar */
+.w-md-editor-toolbar {
+  border-radius: unset;
 }
 
-.w-md-editor ul {
-  line-height: 1;
+.text-editor .w-md-editor-toolbar {
+  border-top-right-radius: 12px;
+  background-color: var(--toolbar);
+  border-bottom: none;
+}
+
+.text-editor .w-md-editor-toolbar li button {
+  /* color: #d4d4d4; */
+}
+
+.text-editor .w-md-editor-show-live {
+  border-top-right-radius: 12px;
+  /* Hide action bar buttons to prevent accidental delete */
+  z-index: 20;
 }
 
 .text-editor .w-md-editor-bar svg {
@@ -15,13 +25,41 @@
 
 .text-editor .w-md-editor-bar {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
-  height: 11px;
+  height: 10px;
+  margin-top: -9px;
   cursor: row-resize;
-  background-color: #37414b;
+  background-color: var(--resizable-handle);
   background-repeat: no-repeat;
   background-position: 50%;
   width: 100%;
   position: relative;
+}
+
+/* md content */
+.text-editor .w-md-editor-content {
+  /* background-color: #202123; */
+}
+
+.w-md-editor .title {
+  line-height: unset;
+  font-size: unset;
+  font-weight: unset;
+  /* color: #d4d4d4 !important; */
+}
+
+.text-editor .w-md-editor,
+.text-editor .w-md-editor .w-md-editor-text-pre {
+  /* color: #d4d4d4; */
+}
+
+.text-editor .w-md-editor-text-pre .bold {
+  /* color: unset; */
+}
+
+.text-editor .token.list.punctuation {
+  background-color: unset;
+  border-radius: 0;
+  box-shadow: unset;
 }
 
 .text-editor em {
@@ -36,55 +74,25 @@
   list-style: decimal;
 }
 
-.text-editor .w-md-editor-show-live {
-  /* Hide menu bar buttons to prevent accidental delete */
-  z-index: 20;
-}
-
-.w-md-editor-toolbar {
-  border-radius: unset;
-}
-
-.text-editor .w-md-editor-toolbar {
-  background-color: #37414b;
-  border-bottom: 1px solid gray;
-}
-
-.text-editor .w-md-editor-toolbar li button {
-  color: #d4d4d4;
-}
-
-.text-editor .w-md-editor-content {
-  /* use light theme */
-  /* background-color: #202123; */
-}
-
-.text-editor .w-md-editor,
-.text-editor .w-md-editor .w-md-editor-text-pre {
-  /* use light theme */
-  /* color: #d4d4d4; */
-}
-
-.text-editor .w-md-editor-text-pre .bold {
-  /* use light theme */
-  /* color: unset; */
-}
-
-.text-editor .token.list.punctuation {
-  background-color: unset;
-}
-
-/* use light theme */
-.w-md-editor {
-  box-shadow: unset;
+.w-md-editor ul {
+  line-height: 1;
 }
 
 /* additional css */
+.w-md-editor,
+.text-editor.card {
+  box-shadow: unset;
+}
+
+.text-editor.card {
+  border-top-right-radius: 12px;
+}
+
 .save-bar {
   text-align: right;
   height: 30px;
   width: 100%;
-  background-color: #37414b;
+  /* background-color: var(--toolbar); */
 }
 
 .save-bar button.is-primary.is-small {
@@ -95,23 +103,4 @@
 .save-bar button.is-primary.is-small:hover {
   opacity: 1;
   transition: opacity 0.3s;
-}
-
-.text-editor-back-to-preview {
-  height: 30px;
-  width: 100%;
-  background-color: #37414b;
-  text-align: center;
-  opacity: 1;
-}
-
-.text-editor-back-to-preview:hover {
-  opacity: 0.85;
-  transition: opacity 0.3s;
-}
-
-.text-editor-back-to-preview:hover::before {
-  content: 'Back to preview mode';
-  color: white;
-  font-size: small;
 }

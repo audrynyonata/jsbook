@@ -47,7 +47,6 @@ const TextEditor = ({ cell }: TextEditorProps) => {
             <i className="fas fa-check" />
           </button>
         </div>
-        {/* <div className="text-editor-back-to-preview"></div> */}
       </>
     );
   }

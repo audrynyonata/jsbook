@@ -1,6 +1,6 @@
 .add-cell {
   position: relative;
-  padding: 8px 0;
+  padding: 6px 0;
   margin: 4px 0;
 }
 
@@ -10,7 +10,7 @@
   bottom: 50%;
   left: 2.5%;
   right: 2.5%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px dashed var(--divider);
   width: 95%;
   z-index: -1;
   opacity: 0;

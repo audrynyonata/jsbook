@@ -21,5 +21,6 @@
 .action-bar-wrapper {
   height: 30px;
   width: 100%;
-  background-color: #37414b;
+  background-color: var(--toolbar);
+  border-top-right-radius: 12px;
 }

@@ -5,7 +5,7 @@
 
 .react-resizable-handle {
   display: block;
-  background-color: #37414b;
+  background-color: var(--resizable-handle);
   background-repeat: no-repeat;
   background-position: 50%;
 }

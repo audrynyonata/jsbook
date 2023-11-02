@@ -14,3 +14,7 @@
 .action-bar button.is-primary.is-small {
   border-radius: 0;
 }
+
+.action-bar button.is-primary.is-small:last-child {
+  border-top-right-radius: 12px;
+}
