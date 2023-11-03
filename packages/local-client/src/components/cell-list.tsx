@@ -13,19 +13,19 @@ const CellList = () => {
     return order.map((id) => data[id]);
   });
 
-  const focusedIndex = useTypedSelector((state) => {
-    return state.cells.focusedIndex;
+  const [order, focusedIndex] = useTypedSelector((state) => {
+    return [state.cells.order, state.cells.focusedIndex];
   });
 
   useEffect(() => {
     document
       .querySelector('.focused')
       ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, [cells, focusedIndex]);
+  }, [order, focusedIndex]);
 
   useEffect(() => {
     fetchCells();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderedCells = cells.map((cell) => (

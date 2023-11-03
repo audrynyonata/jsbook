@@ -13,6 +13,7 @@ const html = `
     </head>
     <body>
       <div id="root"></div>
+      <div id="portal"></div>
       <script>
         const handleError = (err) => {
           const root = document.querySelector('#root');

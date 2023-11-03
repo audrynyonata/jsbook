@@ -12,7 +12,7 @@ const Resizable = ({ direction, children }: ResizableProps) => {
 
   const [innerHeight, setInnerHeight] = useState(window.innerHeight);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  const [width, setWidth] = useState(window.innerWidth * 0.75);
+  const [width, setWidth] = useState(window.innerWidth * 0.65);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -24,7 +24,8 @@ const Resizable = ({ direction, children }: ResizableProps) => {
       timer = setTimeout(() => {
         setInnerHeight(window.innerHeight);
         setInnerWidth(window.innerWidth);
-        if (window.innerWidth * 0.75 < width) {
+        if (width > window.innerWidth * 0.75) {
+          // if bigger than max width
           setWidth(window.innerWidth * 0.75);
         }
       }, 100);

@@ -34,6 +34,7 @@ export interface InsertCellAfterAction {
   payload: {
     id: string | null;
     type: CellType;
+    content?: string;
   };
 }
 

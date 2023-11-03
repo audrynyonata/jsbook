@@ -8,18 +8,26 @@ export const useCumulativeCode = (cellId: string) => {
     const printer = `
       import _React from 'react';
       import _ReactDOM from 'react-dom';
-      var print = (value) => {
+      var print = (value, end) => {
         const root = document.querySelector('#root');
-
+        const portalRoot = document.querySelector('#portal');
+        
         if (typeof value === 'object') {
           if (value.$$typeof && value.props) {
-            _ReactDOM.render(value, root);
+            const temp = document.createElement('div');
+            const portal = _ReactDOM.createPortal(value, root);
+            _ReactDOM.render(portal, temp, () => portalRoot.appendChild(temp));
+            if (end !== undefined && end !== null) root.append(end);
           } else {
-            root.innerHTML = JSON.stringify(value);
+            root.append(JSON.stringify(value));
+            if (end !== undefined && end !== null) root.append(end);
+            else root.append(document.createElement('br'));
           }
         } else {
-          root.innerHTML = value;
-        }
+          root.append(value);
+          if (end !== undefined && end !== null) root.append(end);
+          else root.append(document.createElement('br'));
+      }
       }
     `;
 

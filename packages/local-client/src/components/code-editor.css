@@ -4,16 +4,20 @@
   width: calc(100% - 10px);
 }
 
-.editor-wrapper .button-format {
+.editor-wrapper .button-wrapper {
   position: absolute;
   top: 5px;
   right: 5px;
   z-index: 20;
-  opacity: 0;
-  transition: opacity 0.3s;
 }
 
-.editor-wrapper:hover .button-format {
+.editor-wrapper .button-wrapper .button {
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-left: 5px;
+}
+
+.editor-wrapper:hover .button-wrapper .button {
   opacity: 1;
 }
 

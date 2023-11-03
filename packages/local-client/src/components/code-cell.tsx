@@ -31,7 +31,7 @@ const CodeCell = ({ cell }: CodeCellProps) => {
 
     const timer = setTimeout(async () => {
       createBundle(cell.id, cumulativeCode);
-    }, 750);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
@@ -52,6 +52,7 @@ const CodeCell = ({ cell }: CodeCellProps) => {
           <CodeEditor
             initialValue={cell.content}
             onChange={(value) => updateCell(cell.id, value)}
+            onExecuteBundle={() => createBundle(cell.id, cumulativeCode)}
           />
         </Resizable>
         <div className="progress-wrapper">

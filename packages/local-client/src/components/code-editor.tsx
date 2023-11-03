@@ -10,9 +10,14 @@ import './code-editor.css';
 interface CodeEditorProps {
   initialValue: string;
   onChange(value: string): void;
+  onExecuteBundle: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const CodeEditor = ({ initialValue, onChange }: CodeEditorProps) => {
+const CodeEditor = ({
+  initialValue,
+  onChange,
+  onExecuteBundle,
+}: CodeEditorProps) => {
   const editorRef = useRef<any>();
 
   const handleEditorDidMount: EditorDidMount = (getValue, monacoEditor) => {
@@ -55,12 +60,20 @@ const CodeEditor = ({ initialValue, onChange }: CodeEditorProps) => {
 
   return (
     <div className="editor-wrapper">
-      <button
-        className="button button-format is-primary is-small"
-        onClick={handleFormat}
-      >
-        Format
-      </button>
+      <div className="button-wrapper">
+        <button
+          className="button button-format is-primary is-small"
+          onClick={handleFormat}
+        >
+          Format
+        </button>
+        <button
+          className="button button-play is-primary is-small"
+          onClick={onExecuteBundle}
+        >
+          <i className="fas fa-play" />
+        </button>
+      </div>
       <MonacoEditor
         editorDidMount={handleEditorDidMount}
         value={initialValue}

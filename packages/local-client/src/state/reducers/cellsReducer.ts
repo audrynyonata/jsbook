@@ -85,12 +85,12 @@ const reducer = (state: CellsState = initialState, action: Action) => {
       };
     }
     case ActionType.INSERT_CELL_AFTER: {
-      const { id, type } = action.payload;
+      const { id, type, content } = action.payload;
 
       const cell: Cell = {
         id: randomId(),
         type,
-        content: '',
+        content: content ? content : '',
       };
 
       const foundIndex = state.order.findIndex((cellId) => cellId === id);
@@ -122,7 +122,7 @@ const reducer = (state: CellsState = initialState, action: Action) => {
 
       return {
         ...state,
-        focusedIndex: id,
+        focusedIndex: null,
         data: {
           ...state.data,
           [id]: {
