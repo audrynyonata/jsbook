@@ -13,6 +13,10 @@ export const serve = (
 
   app.use(createCellsRouter(filename, dir));
 
+  app.get('/filename', async (req, res) => {
+    res.send(filename);
+  });
+
   if (useProxy) {
     // opt 1: react dev server running
     // redirect/proxy to reflect changes in local dev instantly

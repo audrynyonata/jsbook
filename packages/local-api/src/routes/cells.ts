@@ -35,8 +35,16 @@ export const createCellsRouter = (filename: string, dir: string) => {
       if (isLocalApiError(err)) {
         // Add code to create a file and add default cells
         if (err.code === 'ENOENT') {
-          await fs.writeFile(fullPath, '[]', 'utf-8');
-          res.send([]);
+          let defaultCells = [];
+          try {
+            const data = require('@jsbook-audrynyonata/local-client/public/demo.json');
+            if (data.hasOwnProperty('demo') && Array.isArray(data.demo)) {
+              defaultCells = data.demo;
+            }
+          } finally {
+            await fs.writeFile(fullPath, JSON.stringify(defaultCells), 'utf-8');
+            res.send(defaultCells);
+          }
         } else {
           throw err;
         }

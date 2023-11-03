@@ -4,6 +4,7 @@ import { useActions } from '../hooks/use-actions';
 import CellListItem from './cell-list-item';
 import AddCell from './add-cell';
 import './cell-list.css';
+import axios from 'axios';
 
 const CellList = () => {
   const { fetchCells } = useActions();
@@ -25,6 +26,10 @@ const CellList = () => {
 
   useEffect(() => {
     fetchCells();
+    axios.get('/filename').then((filename) => {
+      document.title = `${filename} | JSBook | React App`;
+    });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
