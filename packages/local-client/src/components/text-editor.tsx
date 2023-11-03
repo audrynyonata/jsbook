@@ -36,14 +36,14 @@ const TextEditor = ({ cell }: TextEditorProps) => {
   if (editing) {
     return (
       <>
-        <div className="text-editor" ref={ref}>
+        <div data-color-mode="light" className="text-editor" ref={ref}>
           <MDEditor
             value={cell.content}
             onChange={(value) => updateCell(cell.id, value || '')}
           />
         </div>
         <div className="save-bar">
-          <button className="button is-primary is-small">
+          <button className="bu-button bu-is-primary bu-is-small">
             <i className="fas fa-check" />
           </button>
         </div>
@@ -52,8 +52,12 @@ const TextEditor = ({ cell }: TextEditorProps) => {
   }
 
   return (
-    <div className="text-editor card" onClick={() => setEditing(true)}>
-      <div className="card-content">
+    <div
+      data-color-mode="light"
+      className="text-editor bu-card"
+      onClick={() => setEditing(true)}
+    >
+      <div className="bu-card-content">
         <MDEditor.Markdown source={cell.content || 'Click to edit'} />
       </div>
     </div>

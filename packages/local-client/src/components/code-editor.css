@@ -11,13 +11,13 @@
   z-index: 20;
 }
 
-.editor-wrapper .button-wrapper .button {
+.editor-wrapper .button-wrapper button {
   opacity: 0;
   transition: opacity 0.3s;
   margin-left: 5px;
 }
 
-.editor-wrapper:hover .button-wrapper .button {
+.editor-wrapper:hover .button-wrapper button {
   opacity: 1;
 }
 

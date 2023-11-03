@@ -11,10 +11,10 @@
 }
 
 /* use light theme */
-.action-bar button.is-primary.is-small {
+.action-bar button.bu-is-primary.bu-is-small {
   border-radius: 0;
 }
 
-.action-bar button.is-primary.is-small:last-child {
+.action-bar button.bu-is-primary.bu-is-small:last-child {
   border-top-right-radius: 12px;
 }

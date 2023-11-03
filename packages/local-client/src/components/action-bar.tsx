@@ -8,8 +8,8 @@ interface ActionButtonProps {
 
 const ActionButton = ({ action, icon }: ActionButtonProps) => {
   return (
-    <button className="button is-primary is-small" onClick={action}>
-      <span className="icon">
+    <button className="bu-button bu-is-primary bu-is-small" onClick={action}>
+      <span className="bu-icon">
         <i className={icon}></i>
       </span>
     </button>

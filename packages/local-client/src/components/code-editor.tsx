@@ -62,16 +62,18 @@ const CodeEditor = ({
     <div className="editor-wrapper">
       <div className="button-wrapper">
         <button
-          className="button button-format is-primary is-small"
+          className="bu-button button-format bu-is-primary bu-is-small"
           onClick={handleFormat}
         >
           Format
         </button>
         <button
-          className="button button-play is-primary is-small"
+          className="bu-button button-play bu-is-primary bu-is-small"
           onClick={onExecuteBundle}
         >
-          <i className="fas fa-play" />
+          <span className="bu-icon">
+            <i className="fas fa-play" />
+          </span>
         </button>
       </div>
       <MonacoEditor

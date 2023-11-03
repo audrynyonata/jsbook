@@ -13,8 +13,8 @@ const CellList = () => {
     return order.map((id) => data[id]);
   });
 
-  const [order, focusedIndex] = useTypedSelector((state) => {
-    return [state.cells.order, state.cells.focusedIndex];
+  const { loading, order, focusedIndex } = useTypedSelector((state) => {
+    return state.cells;
   });
 
   useEffect(() => {
@@ -38,7 +38,13 @@ const CellList = () => {
   return (
     <div className="cell-list">
       <AddCell forceVisible={cells.length === 0} previousCellId={null} />
-      {renderedCells}
+      {cells.length === 0 && !loading ? (
+        <div className="bu-card empty">
+          <div className="bu-card-content">Add a new cell to get started</div>
+        </div>
+      ) : (
+        renderedCells
+      )}
     </div>
   );
 };

@@ -42,6 +42,8 @@ const reducer = (state: CellsState = initialState, action: Action) => {
       }, {} as CellsState['data']);
       return {
         ...state,
+        loading: false,
+        error: null,
         order,
         data,
       };

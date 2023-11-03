@@ -1,6 +1,3 @@
-// import 'bulmaswatch/superhero/bulmaswatch.min.css'; // use light theme
-import 'bulmaswatch/default/bulmaswatch.min.css';
-
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import CellList from './components/cell-list';

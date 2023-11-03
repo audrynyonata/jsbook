@@ -58,7 +58,10 @@ const CodeCell = ({ cell }: CodeCellProps) => {
         <div className="progress-wrapper">
           {!bundle || bundle.loading ? (
             <div className="progress-cover">
-              <progress className="progress is-small is-primary" max="100">
+              <progress
+                className="bu-progress bu-is-small bu-is-primary"
+                max="100"
+              >
                 Loading
               </progress>
             </div>

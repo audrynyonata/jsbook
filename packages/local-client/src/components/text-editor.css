@@ -1,3 +1,13 @@
+.text-editor .w-md-editor {
+  padding-bottom: 10px;
+}
+
+.text-editor .w-md-editor-show-live {
+  border-top-right-radius: 12px;
+  /* Hide action bar buttons to prevent accidental delete */
+  z-index: 20;
+}
+
 /* toolbar */
 .w-md-editor-toolbar {
   border-radius: unset;
@@ -13,12 +23,6 @@
   /* color: #d4d4d4; */
 }
 
-.text-editor .w-md-editor-show-live {
-  border-top-right-radius: 12px;
-  /* Hide action bar buttons to prevent accidental delete */
-  z-index: 20;
-}
-
 .text-editor .w-md-editor-bar svg {
   display: none;
 }
@@ -26,13 +30,11 @@
 .text-editor .w-md-editor-bar {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
   height: 10px;
-  margin-top: -9px;
   cursor: row-resize;
   background-color: var(--resizable-handle);
   background-repeat: no-repeat;
   background-position: 50%;
   width: 100%;
-  position: relative;
 }
 
 /* md content */
@@ -41,10 +43,10 @@
 }
 
 .w-md-editor .title {
-  line-height: unset;
+  /* line-height: unset;
   font-size: unset;
-  font-weight: unset;
-  /* color: #d4d4d4 !important; */
+  font-weight: unset
+  color: #d4d4d4 !important; */
 }
 
 .text-editor .w-md-editor,
@@ -57,13 +59,17 @@
 }
 
 .text-editor .token.list.punctuation {
-  background-color: unset;
+  /* background-color: unset;
   border-radius: 0;
-  box-shadow: unset;
+  box-shadow: unset; */
 }
 
 .text-editor em {
-  font-style: italic;
+  /* font-style: italic; */
+}
+
+.text-editor .wmde-markdown pre {
+  padding: 0;
 }
 
 .text-editor .wmde-markdown hr {
@@ -71,20 +77,24 @@
 }
 
 .text-editor .wmde-markdown ol {
-  list-style: decimal;
+  /* list-style: decimal; */
+}
+
+.text-editor .wmde-markdown ul {
+  list-style: unset;
 }
 
 .w-md-editor ul {
-  line-height: 1;
+  /* line-height: 1; */
 }
 
 /* additional css */
 .w-md-editor,
-.text-editor.card {
+.text-editor.bu-card {
   box-shadow: unset;
 }
 
-.text-editor.card {
+.text-editor.bu-card {
   border-top-right-radius: 12px;
 }
 
@@ -95,12 +105,12 @@
   /* background-color: var(--toolbar); */
 }
 
-.save-bar button.is-primary.is-small {
+.save-bar button.bu-is-primary.bu-is-small {
   opacity: 0.25;
   border-radius: 0;
 }
 
-.save-bar button.is-primary.is-small:hover {
+.save-bar button.bu-is-primary.bu-is-small:hover {
   opacity: 1;
   transition: opacity 0.3s;
 }

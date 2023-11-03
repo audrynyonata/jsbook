@@ -8,8 +8,11 @@ interface AddButtonProps {
 
 const AddButton = ({ action, label }: AddButtonProps) => {
   return (
-    <button className="button is-rounded is-primary is-small" onClick={action}>
-      <span className="icon is-small">
+    <button
+      className="bu-button bu-is-rounded bu-is-primary bu-is-small"
+      onClick={action}
+    >
+      <span className="bu-icon bu-is-small">
         <i className="fas fa-plus"></i>
       </span>
       <span>{label}</span>
