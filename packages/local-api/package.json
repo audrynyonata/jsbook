@@ -1,6 +1,6 @@
 {
   "name": "@jsbook-audrynyonata/local-api",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@jsbook-audrynyonata/local-client": "^1.2.0",
+    "@jsbook-audrynyonata/local-client": "^1.2.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "http-proxy-middleware": "^2.0.6"
