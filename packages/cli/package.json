@@ -1,6 +1,6 @@
 {
   "name": "jsbook-audrynyonata",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "",
   "homepage": "https://audrynyonata.github.io/jsbook",
   "repository": {
@@ -22,10 +22,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@jsbook-audrynyonata/local-client": "^1.1.2"
+    "@jsbook-audrynyonata/local-client": "^1.2.0"
   },
   "devDependencies": {
-    "@jsbook-audrynyonata/local-api": "^1.1.2",
+    "@jsbook-audrynyonata/local-api": "^1.2.0",
     "@types/node": "^20.8.10",
     "commander": "^11.1.0",
     "esbuild": "0.8.26",
