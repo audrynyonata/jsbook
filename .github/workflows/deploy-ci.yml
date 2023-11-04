@@ -7,10 +7,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/local-client
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -21,12 +24,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: Change directory
-        run: cd packages/local-client
+          cache-dependency-path: 'packages/local-client/package-lock.json'
       - name: Install dependencies
         run: npm install --legacy-peer-deps
       - name: Build Demo
-        run: npm run build:demo
+        run: CI="" npm run build:demo
       # - name: Run tests
       #   run: npm test
       - name: Deploy
@@ -34,7 +36,7 @@ jobs:
           git config --global user.name $user_name
           git config --global user.email $user_email
           git remote set-url origin https://${github_token}@github.com/${repository}
-          npm run deploy
+          CI="" npm run deploy
         env:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
