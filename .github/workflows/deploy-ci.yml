@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -27,8 +27,8 @@ jobs:
           cache-dependency-path: 'packages/local-client/package-lock.json'
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-      - name: Build Demo
-        run: CI="" npm run build:demo
+      # - name: Build Demo
+      #   run: CI="" npm run build:demo
       # - name: Run tests
       #   run: npm test
       - name: Deploy
