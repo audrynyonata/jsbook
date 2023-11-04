@@ -26,7 +26,8 @@ const CellList = () => {
 
   useEffect(() => {
     fetchCells();
-    axios.get('/filename').then((filename) => {
+    axios.get('/filename').then((res) => {
+      const filename = res.data;
       document.title = `${filename} | JSBook | React App`;
     });
 
