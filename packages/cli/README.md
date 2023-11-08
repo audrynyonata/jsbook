@@ -105,7 +105,7 @@ Banana. Orange. Mango. Apple.
 </pre>
 
 ## Development
-
+> ⚠️ **Attention!** Please use Node v16
 1. Install dependencies with legacy-peer-deps and link local packages versions. Note: the extra double-dash is needed
 
 ```bash
